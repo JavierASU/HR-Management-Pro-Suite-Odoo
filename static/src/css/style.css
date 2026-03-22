@@ -1,0 +1,27 @@
+/* HR Management Pro Suite - Estilos personalizados */
+.kanban-badge-draft { background: #b0b0b0; color: #fff; }
+.kanban-badge-submitted { background: #1976d2; color: #fff; }
+.kanban-badge-manager_approved { background: #43a047; color: #fff; }
+.kanban-badge-hr_approved { background: #00897b; color: #fff; }
+.kanban-badge-rejected { background: #e53935; color: #fff; }
+.o_form_button_approve, .o_form_button_submit {
+    background: #1976d2;
+    color: #fff;
+    border-radius: 4px;
+    font-weight: bold;
+}
+.o_form_button_approve:hover, .o_form_button_submit:hover {
+    background: #1565c0;
+}
+.o_form_button_reject {
+    background: #e53935;
+    color: #fff;
+    border-radius: 4px;
+    font-weight: bold;
+}
+.o_form_button_reject:hover {
+    background: #b71c1c;
+}
+.o_group_hr_pro_fields .o_field_widget {
+    margin-bottom: 8px;
+}

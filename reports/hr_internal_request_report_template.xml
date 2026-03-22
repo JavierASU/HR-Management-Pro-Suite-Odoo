@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="report_hr_internal_request">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <div class="page">
+                    <h2>Internal Request Summary</h2>
+                    <table class="table table-sm">
+                        <tr><th>Request Reference</th><td><span t-esc="o.name"/></td></tr>
+                        <tr><th>Employee</th><td><span t-esc="o.employee_id.name"/></td></tr>
+                        <tr><th>Type</th><td><span t-esc="o.request_type"/></td></tr>
+                        <tr><th>Date From</th><td><span t-esc="o.date_from"/></td></tr>
+                        <tr><th>Date To</th><td><span t-esc="o.date_to"/></td></tr>
+                        <tr><th>Manager</th><td><span t-esc="o.manager_id.name"/></td></tr>
+                        <tr><th>HR Responsible</th><td><span t-esc="o.hr_responsible_id.name"/></td></tr>
+                        <tr><th>Reason</th><td><span t-esc="o.reason"/></td></tr>
+                        <tr><th>Status</th><td><span t-esc="o.state"/></td></tr>
+                    </table>
+                    <br/>
+                    <div style="margin-top:40px;">
+                        <table width="100%">
+                            <tr>
+                                <td><strong>Employee Signature:</strong></td>
+                                <td><strong>Manager Signature:</strong></td>
+                                <td><strong>HR Signature:</strong></td>
+                            </tr>
+                            <tr>
+                                <td height="60">_________________________</td>
+                                <td>_________________________</td>
+                                <td>_________________________</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>

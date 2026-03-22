@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="view_hr_internal_request_mass_approve_wizard_form" model="ir.ui.view">
+            <field name="name">hr.internal.request.mass.approve.wizard.form</field>
+            <field name="model">hr.internal.request.mass.approve.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Mass Approve Requests">
+                    <group>
+                        <field name="approve_as"/>
+                        <field name="request_ids" widget="many2many_tags"/>
+                    </group>
+                    <footer>
+                        <button name="action_mass_approve" type="object" string="Approve Selected" class="btn-primary"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+        <act_window id="action_hr_internal_request_mass_approve_wizard"
+            name="Mass Approve Requests"
+            res_model="hr.internal.request.mass.approve.wizard"
+            view_mode="form"
+            target="new"
+            multi="True"/>
+    </data>
+</odoo>

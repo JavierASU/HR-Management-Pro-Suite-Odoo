@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <menuitem id="menu_hr_pro_root" name="HR Pro" sequence="10"/>
+        <menuitem id="menu_hr_pro_employees" name="Employees Pro" parent="menu_hr_pro_root" action="hr.hr_employee_action" sequence="20"/>
+        <menuitem id="menu_hr_pro_internal_requests" name="Internal Requests" parent="menu_hr_pro_root" action="action_hr_internal_request" sequence="30"/>
+        <menuitem id="menu_hr_pro_dashboard" name="Dashboard" parent="menu_hr_pro_root" action="action_hr_dashboard" sequence="40"/>
+    </data>
+</odoo>

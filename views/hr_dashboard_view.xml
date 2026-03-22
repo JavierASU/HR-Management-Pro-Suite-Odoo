@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="action_hr_dashboard" model="ir.actions.client">
+            <field name="name">HR Pro Dashboard</field>
+            <field name="tag">hr_pro_dashboard</field>
+        </record>
+        <template id="template_hr_pro_dashboard">
+            <t t-name="hr_pro_dashboard">
+                <div class="o_hr_pro_dashboard">
+                    <h2>HR Pro KPIs</h2>
+                    <div class="kpi-row">
+                        <div class="kpi-box">
+                            <span class="kpi-label">Total Employees</span>
+                            <span class="kpi-value" t-esc="kpi_total_employees"/>
+                        </div>
+                        <div class="kpi-box">
+                            <span class="kpi-label">Pending Requests</span>
+                            <span class="kpi-value" t-esc="kpi_pending_requests"/>
+                        </div>
+                        <div class="kpi-box">
+                            <span class="kpi-label">Approved This Month</span>
+                            <span class="kpi-value" t-esc="kpi_approved_this_month"/>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </template>
+    </data>
+</odoo>

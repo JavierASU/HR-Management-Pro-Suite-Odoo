@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="view_employee_form_hr_pro" model="ir.ui.view">
+            <field name="name">hr.employee.form.hr.pro</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
+            <field name="arch" type="xml">
+                <notebook position="inside">
+                    <page string="HR Pro">
+                        <group string="Professional Details" class="o_group_hr_pro_fields">
+                            <group>
+                                <field name="seniority_level"/>
+                                <field name="contract_type"/>
+                                <field name="work_modality"/>
+                            </group>
+                            <group>
+                                <field name="performance_score"/>
+                                <field name="leave_balance" readonly="1"/>
+                            </group>
+                        </group>
+                    </page>
+                </notebook>
+            </field>
+        </record>
+    </data>
+</odoo>
