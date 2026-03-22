@@ -1,0 +1,1 @@
+# HR-Management-Pro-Suite-Odoo
