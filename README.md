@@ -10,7 +10,11 @@ Professional Human Resources extension for **Odoo 17 Community Edition**. Manage
 
 ## Screenshots
 
-> Screenshots coming soon. Contributions welcome!
+### My Requests - List View
+![My Requests](static/description/img/screenshot_dashboard.png)
+
+### Employees & Approvals Menu
+![Employees](static/description/img/screenshot_employee.png)
 
 ---
 
