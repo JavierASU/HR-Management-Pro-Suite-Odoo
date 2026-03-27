@@ -1,27 +1,153 @@
-/* HR Management Pro Suite - Estilos personalizados */
-.kanban-badge-draft { background: #b0b0b0; color: #fff; }
-.kanban-badge-submitted { background: #1976d2; color: #fff; }
-.kanban-badge-manager_approved { background: #43a047; color: #fff; }
-.kanban-badge-hr_approved { background: #00897b; color: #fff; }
-.kanban-badge-rejected { background: #e53935; color: #fff; }
-.o_form_button_approve, .o_form_button_submit {
-    background: #1976d2;
-    color: #fff;
-    border-radius: 4px;
-    font-weight: bold;
+/* HR Management Pro Suite - Odoo 17 Styles */
+
+/* ================================================================
+   KANBAN VIEW
+   ================================================================ */
+
+.o_kanban_hr_internal_request .oe_kanban_card {
+    border-left: 4px solid #dee2e6;
+    border-radius: 8px;
+    transition: all 0.2s ease;
 }
-.o_form_button_approve:hover, .o_form_button_submit:hover {
-    background: #1565c0;
+
+.o_kanban_hr_internal_request .oe_kanban_card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transform: translateY(-1px);
 }
-.o_form_button_reject {
-    background: #e53935;
-    color: #fff;
-    border-radius: 4px;
-    font-weight: bold;
+
+/* State-based left border colors */
+.o_kanban_hr_internal_request .o_kanban_group:nth-child(1) .oe_kanban_card {
+    border-left-color: #6c757d;
 }
-.o_form_button_reject:hover {
-    background: #b71c1c;
+
+.o_kanban_hr_internal_request .o_kanban_group:nth-child(2) .oe_kanban_card {
+    border-left-color: #17a2b8;
 }
-.o_group_hr_pro_fields .o_field_widget {
+
+.o_kanban_hr_internal_request .o_kanban_group:nth-child(3) .oe_kanban_card {
+    border-left-color: #ffc107;
+}
+
+.o_kanban_hr_internal_request .o_kanban_group:nth-child(4) .oe_kanban_card {
+    border-left-color: #28a745;
+}
+
+.o_kanban_hr_internal_request .o_kanban_group:nth-child(5) .oe_kanban_card {
+    border-left-color: #dc3545;
+}
+
+.o_kanban_hr_internal_request .o_kanban_record_title {
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.o_kanban_hr_internal_request .o_kanban_record_body {
+    font-size: 0.85rem;
+}
+
+.o_kanban_hr_internal_request .o_kanban_record_bottom {
+    border-top: 1px solid #f0f0f0;
+    padding-top: 6px;
+}
+
+/* ================================================================
+   FORM VIEW
+   ================================================================ */
+
+.o_form_view .oe_title h1 .o_field_widget {
+    font-size: 1.6rem;
+    font-weight: 700;
+}
+
+.o_form_view .oe_title label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: #6c757d;
+    letter-spacing: 0.5px;
+}
+
+/* Radio buttons for request type */
+.o_form_view .o_field_radio .o_radio_item {
+    margin-right: 12px;
+}
+
+/* Statusbar improvements */
+.o_form_view .o_statusbar_status .o_arrow_button {
+    font-size: 0.8rem;
+}
+
+/* ================================================================
+   LIST VIEW
+   ================================================================ */
+
+.o_list_view .o_field_badge {
+    font-size: 0.78rem;
+}
+
+/* ================================================================
+   BADGE STATES
+   ================================================================ */
+
+.o_field_badge.text-bg-muted {
+    background-color: #6c757d !important;
+    color: #fff !important;
+}
+
+/* ================================================================
+   EMPLOYEE HR PRO TAB
+   ================================================================ */
+
+.o_hr_employee_form .o_notebook .tab-pane .o_group {
     margin-bottom: 8px;
+}
+
+/* Performance progressbar styling */
+.o_hr_employee_form .o_progressbar .o_progressbar_value {
+    font-weight: 600;
+}
+
+/* ================================================================
+   WIZARD / DIALOG
+   ================================================================ */
+
+.o_dialog .o_mass_approve_wizard .o_list_view {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+/* ================================================================
+   CALENDAR VIEW
+   ================================================================ */
+
+.o_calendar_view .fc-event {
+    border-radius: 4px;
+    font-size: 0.8rem;
+}
+
+/* ================================================================
+   PRINT REPORT
+   ================================================================ */
+
+@media print {
+    .page h2 {
+        color: #2c3e50;
+        border-bottom: 2px solid #3498db;
+        padding-bottom: 8px;
+    }
+
+    .table th.bg-light {
+        background-color: #f8f9fa !important;
+        font-weight: 600;
+    }
+
+    .hr_request_report_header {
+        border-bottom: 3px solid #2c3e50;
+        padding-bottom: 12px;
+        margin-bottom: 20px;
+    }
+
+    .hr_request_signature_block {
+        page-break-inside: avoid;
+        margin-top: 40px;
+    }
 }

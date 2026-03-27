@@ -1,9 +1,70 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
     <data>
-        <menuitem id="menu_hr_pro_root" name="HR Pro" sequence="10"/>
-        <menuitem id="menu_hr_pro_employees" name="Employees Pro" parent="menu_hr_pro_root" action="hr.hr_employee_action" sequence="20"/>
-        <menuitem id="menu_hr_pro_internal_requests" name="Internal Requests" parent="menu_hr_pro_root" action="action_hr_internal_request" sequence="30"/>
-        <menuitem id="menu_hr_pro_dashboard" name="Dashboard" parent="menu_hr_pro_root" action="action_hr_dashboard" sequence="40"/>
+
+        <!-- Root Menu -->
+        <menuitem id="menu_hr_pro_root"
+                  name="HR Pro"
+                  web_icon="hr_management_pro,static/description/icon.png"
+                  sequence="45"
+                  groups="hr_management_pro.group_hr_pro_user"/>
+
+        <!-- Submenu: My Requests (visible to all users) -->
+        <menuitem id="menu_hr_pro_my_requests"
+                  name="My Requests"
+                  parent="menu_hr_pro_root"
+                  action="action_hr_dashboard_my_requests"
+                  sequence="10"/>
+
+        <!-- Submenu: My Team (visible to managers) -->
+        <menuitem id="menu_hr_pro_my_team"
+                  name="My Team"
+                  parent="menu_hr_pro_root"
+                  action="action_hr_dashboard_my_team"
+                  sequence="15"
+                  groups="hr_management_pro.group_hr_pro_manager"/>
+
+        <!-- Submenu: All Requests -->
+        <menuitem id="menu_hr_pro_internal_requests"
+                  name="All Requests"
+                  parent="menu_hr_pro_root"
+                  action="action_hr_internal_request"
+                  sequence="20"
+                  groups="hr_management_pro.group_hr_pro_manager"/>
+
+        <!-- Submenu: Approvals -->
+        <menuitem id="menu_hr_pro_approvals"
+                  name="Approvals"
+                  parent="menu_hr_pro_root"
+                  sequence="30"
+                  groups="hr_management_pro.group_hr_pro_manager"/>
+
+        <menuitem id="menu_hr_pro_pending"
+                  name="Pending Approval"
+                  parent="menu_hr_pro_approvals"
+                  action="action_hr_dashboard_pending"
+                  sequence="10"/>
+
+        <menuitem id="menu_hr_pro_awaiting_hr"
+                  name="Awaiting HR"
+                  parent="menu_hr_pro_approvals"
+                  action="action_hr_dashboard_awaiting_hr"
+                  sequence="20"
+                  groups="hr_management_pro.group_hr_pro_admin"/>
+
+        <menuitem id="menu_hr_pro_approved"
+                  name="Approved This Month"
+                  parent="menu_hr_pro_approvals"
+                  action="action_hr_dashboard_approved_month"
+                  sequence="30"/>
+
+        <!-- Submenu: Employees -->
+        <menuitem id="menu_hr_pro_employees"
+                  name="Employees"
+                  parent="menu_hr_pro_root"
+                  action="hr.open_view_employee_list_my"
+                  sequence="40"
+                  groups="hr_management_pro.group_hr_pro_manager"/>
+
     </data>
 </odoo>

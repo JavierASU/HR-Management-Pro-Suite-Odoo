@@ -1,7 +1,7 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_hr_internal_request_user,hr.internal.request.user,model_hr_internal_request,hr_management_pro.group_hr_pro_user,1,0,1,0
+access_hr_internal_request_user,hr.internal.request.user,model_hr_internal_request,hr_management_pro.group_hr_pro_user,1,1,1,0
 access_hr_internal_request_manager,hr.internal.request.manager,model_hr_internal_request,hr_management_pro.group_hr_pro_manager,1,1,1,0
-access_hr_internal_request_hr,hr.internal.request.hr,model_hr_internal_request,hr_management_pro.group_hr_pro_admin,1,1,1,1
-access_hr_internal_request_admin,hr.internal.request.admin,model_hr_internal_request,base.group_system,1,1,1,1
-access_hr_internal_request_mass_approve_wizard,hr.internal.request.mass.approve.wizard,model_hr_internal_request_mass_approve_wizard,hr_management_pro.group_hr_pro_manager,1,1,1,0
-access_hr_internal_request_mass_approve_wizard_admin,hr.internal.request.mass.approve.wizard.admin,model_hr_internal_request_mass_approve_wizard,hr_management_pro.group_hr_pro_admin,1,1,1,1
+access_hr_internal_request_admin,hr.internal.request.admin,model_hr_internal_request,hr_management_pro.group_hr_pro_admin,1,1,1,1
+access_hr_internal_request_system,hr.internal.request.system,model_hr_internal_request,base.group_system,1,1,1,1
+access_mass_approve_wizard_manager,hr.internal.request.mass.approve.wizard.manager,model_hr_internal_request_mass_approve_wizard,hr_management_pro.group_hr_pro_manager,1,1,1,1
+access_mass_approve_wizard_admin,hr.internal.request.mass.approve.wizard.admin,model_hr_internal_request_mass_approve_wizard,hr_management_pro.group_hr_pro_admin,1,1,1,1

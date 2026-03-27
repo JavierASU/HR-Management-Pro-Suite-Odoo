@@ -1,38 +1,167 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
+
+    <!-- Report Action -->
+    <record id="action_report_hr_internal_request" model="ir.actions.report">
+        <field name="name">Internal Request Report</field>
+        <field name="model">hr.internal.request</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">hr_management_pro.report_hr_internal_request</field>
+        <field name="report_file">hr_management_pro.report_hr_internal_request</field>
+        <field name="print_report_name">(object.name or 'Request') + ' - Report'</field>
+        <field name="binding_model_id" ref="model_hr_internal_request"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <!-- Report QWeb Template -->
     <template id="report_hr_internal_request">
         <t t-call="web.html_container">
             <t t-foreach="docs" t-as="o">
-                <div class="page">
-                    <h2>Internal Request Summary</h2>
-                    <table class="table table-sm">
-                        <tr><th>Request Reference</th><td><span t-esc="o.name"/></td></tr>
-                        <tr><th>Employee</th><td><span t-esc="o.employee_id.name"/></td></tr>
-                        <tr><th>Type</th><td><span t-esc="o.request_type"/></td></tr>
-                        <tr><th>Date From</th><td><span t-esc="o.date_from"/></td></tr>
-                        <tr><th>Date To</th><td><span t-esc="o.date_to"/></td></tr>
-                        <tr><th>Manager</th><td><span t-esc="o.manager_id.name"/></td></tr>
-                        <tr><th>HR Responsible</th><td><span t-esc="o.hr_responsible_id.name"/></td></tr>
-                        <tr><th>Reason</th><td><span t-esc="o.reason"/></td></tr>
-                        <tr><th>Status</th><td><span t-esc="o.state"/></td></tr>
-                    </table>
-                    <br/>
-                    <div style="margin-top:40px;">
-                        <table width="100%">
-                            <tr>
-                                <td><strong>Employee Signature:</strong></td>
-                                <td><strong>Manager Signature:</strong></td>
-                                <td><strong>HR Signature:</strong></td>
-                            </tr>
-                            <tr>
-                                <td height="60">_________________________</td>
-                                <td>_________________________</td>
-                                <td>_________________________</td>
-                            </tr>
-                        </table>
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <!-- Report Header -->
+                        <div class="hr_request_report_header text-center mb-4">
+                            <h2>
+                                <i class="fa fa-file-text-o"/>
+                                Internal Request Report
+                            </h2>
+                            <h4 class="text-muted" t-esc="o.name"/>
+                        </div>
+
+                        <div class="row mb-4">
+                            <!-- Left Column: Request Info -->
+                            <div class="col-6">
+                                <h5 class="border-bottom pb-2 mb-3">
+                                    <i class="fa fa-user me-1"/> Request Information
+                                </h5>
+                                <table class="table table-sm">
+                                    <tbody>
+                                        <tr>
+                                            <th class="bg-light" width="40%">Reference</th>
+                                            <td><strong t-esc="o.name"/></td>
+                                        </tr>
+                                        <tr>
+                                            <th class="bg-light">Employee</th>
+                                            <td t-esc="o.employee_id.name"/>
+                                        </tr>
+                                        <tr>
+                                            <th class="bg-light">Department</th>
+                                            <td t-esc="o.department_id.name"/>
+                                        </tr>
+                                        <tr>
+                                            <th class="bg-light">Request Type</th>
+                                            <td>
+                                                <span t-attf-class="badge #{
+                                                    'text-bg-info' if o.request_type == 'leave'
+                                                    else 'text-bg-secondary' if o.request_type == 'permission'
+                                                    else 'text-bg-warning' if o.request_type == 'equipment'
+                                                    else 'text-bg-success'}">
+                                                    <t t-if="o.request_type == 'leave'">Leave</t>
+                                                    <t t-if="o.request_type == 'permission'">Permission</t>
+                                                    <t t-if="o.request_type == 'equipment'">Equipment</t>
+                                                    <t t-if="o.request_type == 'remote_work'">Remote Work</t>
+                                                </span>
+                                            </td>
+                                        </tr>
+                                        <tr t-if="o.priority != '0'">
+                                            <th class="bg-light">Priority</th>
+                                            <td>
+                                                <span t-attf-class="badge #{
+                                                    'text-bg-warning' if o.priority == '1'
+                                                    else 'text-bg-danger'}">
+                                                    <t t-if="o.priority == '1'">Important</t>
+                                                    <t t-if="o.priority == '2'">Urgent</t>
+                                                </span>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <!-- Right Column: Schedule & Status -->
+                            <div class="col-6">
+                                <h5 class="border-bottom pb-2 mb-3">
+                                    <i class="fa fa-calendar me-1"/> Schedule &amp; Status
+                                </h5>
+                                <table class="table table-sm">
+                                    <tbody>
+                                        <tr>
+                                            <th class="bg-light" width="40%">Date From</th>
+                                            <td><span t-field="o.date_from" t-options="{'widget': 'date'}"/></td>
+                                        </tr>
+                                        <tr>
+                                            <th class="bg-light">Date To</th>
+                                            <td><span t-field="o.date_to" t-options="{'widget': 'date'}"/></td>
+                                        </tr>
+                                        <tr>
+                                            <th class="bg-light">Duration</th>
+                                            <td><strong><span t-esc="'%.1f' % o.duration_days"/> days</strong></td>
+                                        </tr>
+                                        <tr>
+                                            <th class="bg-light">Status</th>
+                                            <td>
+                                                <span t-attf-class="badge #{
+                                                    'text-bg-secondary' if o.state == 'draft'
+                                                    else 'text-bg-info' if o.state == 'submitted'
+                                                    else 'text-bg-warning' if o.state == 'manager_approved'
+                                                    else 'text-bg-success' if o.state == 'hr_approved'
+                                                    else 'text-bg-danger'}">
+                                                    <t t-esc="dict(o._fields['state'].selection).get(o.state)"/>
+                                                </span>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- Reason Section -->
+                        <t t-if="o.reason">
+                            <div class="mb-4">
+                                <h5 class="border-bottom pb-2 mb-3">
+                                    <i class="fa fa-comment-o me-1"/> Reason
+                                </h5>
+                                <div class="ps-3" t-field="o.reason"/>
+                            </div>
+                        </t>
+
+                        <!-- Rejection Section -->
+                        <t t-if="o.rejection_reason">
+                            <div class="mb-4">
+                                <h5 class="border-bottom pb-2 mb-3 text-danger">
+                                    <i class="fa fa-ban me-1"/> Rejection Reason
+                                </h5>
+                                <div class="alert alert-danger ps-3">
+                                    <t t-esc="o.rejection_reason"/>
+                                </div>
+                            </div>
+                        </t>
+
+                        <!-- Signatures -->
+                        <div class="hr_request_signature_block row mt-5">
+                            <div class="col-4 text-center">
+                                <p class="mb-0"><strong>Employee</strong></p>
+                                <div style="margin-top: 50px; border-top: 1px solid #333; padding-top: 5px;">
+                                    <span t-esc="o.employee_id.name"/>
+                                </div>
+                            </div>
+                            <div class="col-4 text-center">
+                                <p class="mb-0"><strong>Manager</strong></p>
+                                <div style="margin-top: 50px; border-top: 1px solid #333; padding-top: 5px;">
+                                    <span t-esc="o.manager_id.name or ''"/>
+                                </div>
+                            </div>
+                            <div class="col-4 text-center">
+                                <p class="mb-0"><strong>HR Responsible</strong></p>
+                                <div style="margin-top: 50px; border-top: 1px solid #333; padding-top: 5px;">
+                                    <span t-esc="o.hr_responsible_id.name or ''"/>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
+                </t>
             </t>
         </t>
     </template>
+
 </odoo>

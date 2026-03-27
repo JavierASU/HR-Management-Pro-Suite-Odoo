@@ -1,30 +1,73 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
     <data>
-        <record id="action_hr_dashboard" model="ir.actions.client">
-            <field name="name">HR Pro Dashboard</field>
-            <field name="tag">hr_pro_dashboard</field>
+
+        <!-- Dashboard: Pending Requests (for managers) -->
+        <record id="action_hr_dashboard_pending" model="ir.actions.act_window">
+            <field name="name">Pending Requests</field>
+            <field name="res_model">hr.internal.request</field>
+            <field name="view_mode">tree,kanban,form,calendar</field>
+            <field name="domain">[('state', '=', 'submitted')]</field>
+            <field name="context">{'search_default_pending': 1}</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    No pending requests
+                </p>
+                <p>All requests have been processed. Great job!</p>
+            </field>
         </record>
-        <template id="template_hr_pro_dashboard">
-            <t t-name="hr_pro_dashboard">
-                <div class="o_hr_pro_dashboard">
-                    <h2>HR Pro KPIs</h2>
-                    <div class="kpi-row">
-                        <div class="kpi-box">
-                            <span class="kpi-label">Total Employees</span>
-                            <span class="kpi-value" t-esc="kpi_total_employees"/>
-                        </div>
-                        <div class="kpi-box">
-                            <span class="kpi-label">Pending Requests</span>
-                            <span class="kpi-value" t-esc="kpi_pending_requests"/>
-                        </div>
-                        <div class="kpi-box">
-                            <span class="kpi-label">Approved This Month</span>
-                            <span class="kpi-value" t-esc="kpi_approved_this_month"/>
-                        </div>
-                    </div>
-                </div>
-            </t>
-        </template>
+
+        <!-- Dashboard: Awaiting HR Approval -->
+        <record id="action_hr_dashboard_awaiting_hr" model="ir.actions.act_window">
+            <field name="name">Awaiting HR Approval</field>
+            <field name="res_model">hr.internal.request</field>
+            <field name="view_mode">tree,kanban,form,calendar</field>
+            <field name="domain">[('state', '=', 'manager_approved')]</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    No requests awaiting HR approval
+                </p>
+                <p>All manager-approved requests have been processed.</p>
+            </field>
+        </record>
+
+        <!-- Dashboard: All Approved This Month -->
+        <record id="action_hr_dashboard_approved_month" model="ir.actions.act_window">
+            <field name="name">Approved This Month</field>
+            <field name="res_model">hr.internal.request</field>
+            <field name="view_mode">tree,kanban,form,calendar</field>
+            <field name="domain">[('state', '=', 'hr_approved')]</field>
+            <field name="context">{'search_default_this_month': 1}</field>
+        </record>
+
+        <!-- Dashboard: My Requests -->
+        <record id="action_hr_dashboard_my_requests" model="ir.actions.act_window">
+            <field name="name">My Requests</field>
+            <field name="res_model">hr.internal.request</field>
+            <field name="view_mode">tree,kanban,form,calendar,activity</field>
+            <field name="domain">[('employee_id.user_id', '=', uid)]</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create your first request
+                </p>
+                <p>Submit a new internal request to track leaves, permissions, equipment or remote work.</p>
+            </field>
+        </record>
+
+        <!-- Dashboard: My Team Requests (for managers) -->
+        <record id="action_hr_dashboard_my_team" model="ir.actions.act_window">
+            <field name="name">My Team Requests</field>
+            <field name="res_model">hr.internal.request</field>
+            <field name="view_mode">tree,kanban,form,calendar</field>
+            <field name="domain">[('manager_id.user_id', '=', uid)]</field>
+            <field name="context">{'search_default_my_team': 1}</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    No team requests
+                </p>
+                <p>Your team members have not submitted any requests yet.</p>
+            </field>
+        </record>
+
     </data>
 </odoo>
