@@ -36,7 +36,9 @@ class HrInternalRequest(models.Model):
         ('permission', 'Permission'),
         ('equipment', 'Equipment'),
         ('remote_work', 'Remote Work'),
-    ], string='Request Type', required=True, tracking=True)
+    ], string='Request Type', required=True, tracking=True,
+        help="Type of internal request: Leave (days off), Permission (short absence), "
+             "Equipment (hardware/software request), Remote Work (work from home).")
 
     date_from = fields.Datetime(string='Date From', required=True, tracking=True)
     date_to = fields.Datetime(string='Date To', required=True, tracking=True)
@@ -80,7 +82,8 @@ class HrInternalRequest(models.Model):
         ('0', 'Normal'),
         ('1', 'Important'),
         ('2', 'Urgent'),
-    ], string='Priority', default='0', tracking=True)
+    ], string='Priority', default='0', tracking=True,
+        help="Set the urgency level. Urgent requests are highlighted in dashboards.")
 
     color = fields.Integer(string='Color', compute='_compute_color')
 
