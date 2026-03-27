@@ -38,6 +38,11 @@
                                 class="btn-primary"
                                 icon="fa-check-circle"
                                 confirm="Are you sure you want to approve all selected requests?"/>
+                        <button name="action_mass_reject" type="object"
+                                string="Reject Selected"
+                                class="btn-danger"
+                                icon="fa-times-circle"
+                                confirm="Are you sure you want to reject all selected requests?"/>
                         <button string="Cancel" class="btn-secondary" special="cancel"/>
                     </footer>
                 </form>
