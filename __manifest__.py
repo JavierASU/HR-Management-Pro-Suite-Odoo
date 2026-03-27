@@ -1,6 +1,6 @@
 {
     "name": "HR Management Pro Suite",
-    "version": "17.0.1.1.0",
+    "version": "17.0.1.2.0",
     "summary": "Advanced HR management: internal requests, approvals, dashboards and reports.",
     "description": """
 HR Management Pro Suite
