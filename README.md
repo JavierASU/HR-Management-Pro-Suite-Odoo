@@ -10,11 +10,7 @@ Professional Human Resources extension for **Odoo 17 Community Edition**. Manage
 
 ## Screenshots
 
-| Dashboard | Request Form | PDF Report |
-|:---------:|:------------:|:----------:|
-| ![Dashboard](static/description/img/screenshot_dashboard.png) | ![Request Form](static/description/img/screenshot_request_form.png) | ![PDF Report](static/description/img/screenshot_pdf_report.png) |
-
-> To add your own screenshots, place them in `static/description/img/`
+> Screenshots coming soon. Contributions welcome!
 
 ---
 
