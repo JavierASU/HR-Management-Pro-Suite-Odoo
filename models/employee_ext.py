@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
-from odoo import api, fields, models
+from odoo import api, fields, models, _
+from odoo.exceptions import ValidationError
 
 
 class HrEmployee(models.Model):
@@ -31,6 +32,14 @@ class HrEmployee(models.Model):
         digits=(3, 1),
         tracking=True,
     )
+
+    @api.constrains('performance_score')
+    def _check_performance_score(self):
+        for employee in self:
+            if employee.performance_score < 0 or employee.performance_score > 10:
+                raise ValidationError(
+                    _('Performance score must be between 0 and 10.')
+                )
 
     internal_request_count = fields.Integer(
         string='Request Count',
