@@ -1,32 +1,24 @@
 # HR Management Pro Suite
 
-Módulo profesional para Odoo 17 Community Edition que extiende la gestión de RRHH con:
+Advanced HR management module for **Odoo 17 Community Edition**.
 
-- Solicitudes internas de empleados (aprobación multinivel)
-- Extensión avanzada de empleados (seniority, modalidad, score, etc.)
-- Dashboard con KPIs
-- Reporte PDF QWeb
-- Wizard de aprobación masiva
-- Seguridad granular por roles
-- Vistas profesionales (kanban, árbol, formulario, filtros)
-- Estilos visuales personalizados
+## Features
 
-## Instalación
-1. Copia la carpeta `hr_management_pro` en tu carpeta de addons.
-2. Actualiza la lista de apps y busca "HR Management Pro Suite".
-3. Instala el módulo.
+- Employee professional profile extension (seniority, contract, modality, performance)
+- Internal employee request system (leave, permission, equipment, remote work)
+- Multi-level approval workflow (draft > submitted > manager > HR)
+- Filtered dashboard views (pending, awaiting HR, approved this month)
+- Mass approval wizard for managers and HR
+- QWeb PDF reports with signatures
+- Role-based security with record rules
+- Full mail.thread integration with tracking
 
-## Estructura
-- `models/` Extensión de modelos y nuevos modelos
-- `views/` Vistas, menús y dashboard
-- `wizard/` Wizards para acciones masivas
-- `reports/` Plantillas QWeb para PDF
-- `security/` Grupos y permisos
-- `static/` Archivos CSS
-- `data/` Secuencias
+## Installation
 
-## Créditos
-Desarrollado por Tu Empresa
+1. Clone this repository into your Odoo addons directory
+2. Update the addons list in Odoo
+3. Install the module from the Apps menu
 
----
-Repositorio oficial: https://github.com/JavierASU/HR-Management-Pro-Suite-Odoo.git
+## License
+
+LGPL-3
