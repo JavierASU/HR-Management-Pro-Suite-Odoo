@@ -49,3 +49,24 @@ class HrInternalRequestMassApproveWizard(models.TransientModel):
             ))
 
         return {'type': 'ir.actions.act_window_close'}
+
+    def action_mass_reject(self):
+        self.ensure_one()
+        if not self.request_ids:
+            raise UserError(_('No requests selected.'))
+
+        rejected = 0
+        skipped = 0
+        for request in self.request_ids:
+            if request.state in ('submitted', 'manager_approved'):
+                request.action_reject()
+                rejected += 1
+            else:
+                skipped += 1
+
+        if skipped and not rejected:
+            raise UserError(_(
+                'None of the selected requests can be rejected.'
+            ))
+
+        return {'type': 'ir.actions.act_window_close'}
