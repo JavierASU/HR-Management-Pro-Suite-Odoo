@@ -21,7 +21,7 @@ Features:
 * Full mail.thread integration with tracking
 """,
     "author": "HR Management Pro",
-    "website": "https://github.com/hr-management-pro",
+    "website": "https://github.com/JavierASU/HR-Management-Pro-Suite-Odoo",
     "category": "Human Resources",
     "license": "LGPL-3",
     "depends": [
