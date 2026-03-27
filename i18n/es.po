@@ -1,0 +1,172 @@
+# Translation of HR Management Pro Suite
+# Spanish (es)
+msgid ""
+msgstr ""
+"Project-Id-Version: HR Management Pro Suite 17.0.1.2.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-03-27 00:00+0000\n"
+"PO-Revision-Date: 2026-03-27 00:00+0000\n"
+"Last-Translator: JavierASU\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Internal Employee Request"
+msgstr "Solicitud Interna de Empleado"
+
+msgid "Reference"
+msgstr "Referencia"
+
+msgid "Employee"
+msgstr "Empleado"
+
+msgid "Department"
+msgstr "Departamento"
+
+msgid "Request Type"
+msgstr "Tipo de Solicitud"
+
+msgid "Leave"
+msgstr "Permiso"
+
+msgid "Permission"
+msgstr "Autorización"
+
+msgid "Equipment"
+msgstr "Equipamiento"
+
+msgid "Remote Work"
+msgstr "Trabajo Remoto"
+
+msgid "Date From"
+msgstr "Fecha Desde"
+
+msgid "Date To"
+msgstr "Fecha Hasta"
+
+msgid "Duration (days)"
+msgstr "Duración (días)"
+
+msgid "Reason"
+msgstr "Motivo"
+
+msgid "Status"
+msgstr "Estado"
+
+msgid "Draft"
+msgstr "Borrador"
+
+msgid "Submitted"
+msgstr "Enviada"
+
+msgid "Manager Approved"
+msgstr "Aprobada por Gerente"
+
+msgid "HR Approved"
+msgstr "Aprobada por RRHH"
+
+msgid "Rejected"
+msgstr "Rechazada"
+
+msgid "Manager"
+msgstr "Gerente"
+
+msgid "HR Responsible"
+msgstr "Responsable de RRHH"
+
+msgid "Rejection Reason"
+msgstr "Motivo de Rechazo"
+
+msgid "Priority"
+msgstr "Prioridad"
+
+msgid "Normal"
+msgstr "Normal"
+
+msgid "Important"
+msgstr "Importante"
+
+msgid "Urgent"
+msgstr "Urgente"
+
+msgid "Submit"
+msgstr "Enviar"
+
+msgid "Manager Approve"
+msgstr "Aprobar como Gerente"
+
+msgid "HR Approve"
+msgstr "Aprobar como RRHH"
+
+msgid "Reject"
+msgstr "Rechazar"
+
+msgid "Reset to Draft"
+msgstr "Restablecer a Borrador"
+
+msgid "Mass Approve Requests"
+msgstr "Aprobación Masiva de Solicitudes"
+
+msgid "Approve As"
+msgstr "Aprobar Como"
+
+msgid "Seniority Level"
+msgstr "Nivel de Antigüedad"
+
+msgid "Junior"
+msgstr "Junior"
+
+msgid "Mid"
+msgstr "Semi-Senior"
+
+msgid "Senior"
+msgstr "Senior"
+
+msgid "Lead"
+msgstr "Líder"
+
+msgid "Contract Type"
+msgstr "Tipo de Contrato"
+
+msgid "Indefinite"
+msgstr "Indefinido"
+
+msgid "Fixed Term"
+msgstr "Plazo Fijo"
+
+msgid "Contractor"
+msgstr "Contratista"
+
+msgid "Intern"
+msgstr "Pasante"
+
+msgid "Work Modality"
+msgstr "Modalidad de Trabajo"
+
+msgid "Remote"
+msgstr "Remoto"
+
+msgid "Hybrid"
+msgstr "Híbrido"
+
+msgid "Onsite"
+msgstr "Presencial"
+
+msgid "Performance Score"
+msgstr "Puntuación de Rendimiento"
+
+msgid "My Requests"
+msgstr "Mis Solicitudes"
+
+msgid "All Requests"
+msgstr "Todas las Solicitudes"
+
+msgid "Pending Approval"
+msgstr "Pendientes de Aprobación"
+
+msgid "Awaiting HR"
+msgstr "Esperando RRHH"
+
+msgid "Approved This Month"
+msgstr "Aprobadas Este Mes"
