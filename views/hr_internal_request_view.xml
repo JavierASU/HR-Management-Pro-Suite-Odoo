@@ -352,12 +352,41 @@
         </record>
 
         <!-- ============================================================ -->
+        <!--                       PIVOT VIEW                            -->
+        <!-- ============================================================ -->
+        <record id="view_hr_internal_request_pivot" model="ir.ui.view">
+            <field name="name">hr.internal.request.pivot</field>
+            <field name="model">hr.internal.request</field>
+            <field name="arch" type="xml">
+                <pivot string="Internal Requests Analysis" sample="1">
+                    <field name="department_id" type="row"/>
+                    <field name="request_type" type="col"/>
+                    <field name="duration_days" type="measure"/>
+                </pivot>
+            </field>
+        </record>
+
+        <!-- ============================================================ -->
+        <!--                       GRAPH VIEW                             -->
+        <!-- ============================================================ -->
+        <record id="view_hr_internal_request_graph" model="ir.ui.view">
+            <field name="name">hr.internal.request.graph</field>
+            <field name="model">hr.internal.request</field>
+            <field name="arch" type="xml">
+                <graph string="Internal Requests" type="bar" sample="1">
+                    <field name="request_type"/>
+                    <field name="duration_days" type="measure"/>
+                </graph>
+            </field>
+        </record>
+
+        <!-- ============================================================ -->
         <!--                     MAIN ACTION                              -->
         <!-- ============================================================ -->
         <record id="action_hr_internal_request" model="ir.actions.act_window">
             <field name="name">Internal Requests</field>
             <field name="res_model">hr.internal.request</field>
-            <field name="view_mode">tree,kanban,form,calendar,activity</field>
+            <field name="view_mode">tree,kanban,form,calendar,pivot,graph,activity</field>
             <field name="search_view_id" ref="view_hr_internal_request_search"/>
             <field name="context">{'search_default_my_requests': 1}</field>
             <field name="help" type="html">
