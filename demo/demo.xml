@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <record id="demo_request_leave_01" model="hr.internal.request">
+            <field name="employee_id" ref="hr.employee_admin"/>
+            <field name="request_type">leave</field>
+            <field name="date_from" eval="(DateTime.today() + relativedelta(days=5)).strftime('%Y-%m-%d 08:00:00')"/>
+            <field name="date_to" eval="(DateTime.today() + relativedelta(days=7)).strftime('%Y-%m-%d 18:00:00')"/>
+            <field name="reason">Family vacation</field>
+            <field name="priority">1</field>
+        </record>
+
+        <record id="demo_request_remote_01" model="hr.internal.request">
+            <field name="employee_id" ref="hr.employee_admin"/>
+            <field name="request_type">remote_work</field>
+            <field name="date_from" eval="(DateTime.today() + relativedelta(days=1)).strftime('%Y-%m-%d 08:00:00')"/>
+            <field name="date_to" eval="(DateTime.today() + relativedelta(days=3)).strftime('%Y-%m-%d 18:00:00')"/>
+            <field name="reason">Working from home office</field>
+            <field name="priority">0</field>
+        </record>
+
+    </data>
+</odoo>
