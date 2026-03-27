@@ -48,7 +48,17 @@ class HrInternalRequestMassApproveWizard(models.TransientModel):
                 'None of the selected requests are in the correct state for this approval type.'
             ))
 
-        return {'type': 'ir.actions.act_window_close'}
+        return {
+            'type': 'ir.actions.client',
+            'tag': 'display_notification',
+            'params': {
+                'title': _('Mass Approval'),
+                'message': _('%d request(s) approved, %d skipped.') % (approved, skipped),
+                'type': 'success' if approved else 'warning',
+                'sticky': False,
+                'next': {'type': 'ir.actions.act_window_close'},
+            },
+        }
 
     def action_mass_reject(self):
         self.ensure_one()
